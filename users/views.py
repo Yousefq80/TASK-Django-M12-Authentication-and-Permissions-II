@@ -28,7 +28,7 @@ def register_user(request):
 
 def logout_view(request):
     logout(request)
-    return redirect("login")
+    return redirect("login.html")
 
 def login_user(request):
     form = LoginForm()
