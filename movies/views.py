@@ -7,6 +7,8 @@ from movies.models import Movie
 
 
 def get_movies(request ):
+    if request.user.is_anonymous:
+        return redirect("login")
     movies = Movie.objects.all()
     context = {
         "movies": movies,
@@ -15,6 +17,8 @@ def get_movies(request ):
 
 
 def get_movie(request, movie_id):
+    if request.user.is_anonymous:
+        return redirect("login")
     try:
         movie = Movie.objects.get(id=movie_id)
     except (OperationalError, Movie.DoesNotExist):
@@ -27,6 +31,8 @@ def get_movie(request, movie_id):
 
 
 def create_movie(request):
+    if request.user.is_anonymous:
+        return redirect("login")
     form = MovieForm()
     if request.method == "POST":
         # BONUS: This needs to have the `user` injected in the constructor

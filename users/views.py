@@ -28,12 +28,12 @@ def register_user(request):
 
 def logout_view(request):
     logout(request)
-    return redirect("success-page")
+    return redirect("login")
 
 def login_user(request):
-    form = login_user()
+    form = LoginForm()
     if request.method == "POST":
-        form = login_user(request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
 
             username = form.cleaned_data["username"]
