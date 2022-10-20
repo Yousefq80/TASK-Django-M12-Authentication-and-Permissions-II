@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class=""container">
+        
+    <form method="post" action="{% url 'login' %}">
+       
+        <header>Login</header>
+        <label>Username <span>*</span></label>
+        <input type="text" name="username" placeholder="Username" required="" />
+        <div class="help">At least 5 character</div>
+        <label>Password <span>*</span></label>
+        <input type="password" name="password" placeholder="Password" required="" />
+        <div class="help">Use upper and lowercase letters as well</div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+</body>
+</html>
+
+
