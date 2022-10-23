@@ -39,14 +39,24 @@ def get_movie(request, movie_id):
 def create_movie(request):
     # if request.user.is_anonymous:
     #     return redirect("login")
+    
+    intaial_data = {
+        'created_by': request.user,
+        
+    }
+    fm = MovieForm(initial=intaial_data)
+    mydict = {
+         'form': fm}
     form = MovieForm()
     if request.method == "POST":
         # BONUS: This needs to have the `user` injected in the constructor
         # somehow
+        
+       
         form = MovieForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("home",context=mydict)
 
     context = {
         "form": form,
